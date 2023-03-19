@@ -12,11 +12,11 @@ registrationForm : FormGroup | any;
 ngOnInit(): void {
   this.registrationForm = new FormGroup({
     statementName: new FormControl('', Validators.required),
-    PersonName: new FormControl('', Validators.required),
+    personName: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     repeatPassword: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', Validators.required)
+    phoneNumber: new FormControl('', Validators.required),
    
   })
 }

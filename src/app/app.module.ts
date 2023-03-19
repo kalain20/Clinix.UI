@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FootHeaderComponent } from './foot-header/foot-header.component';
 
 
 
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     FooterComponent,
     RegisterComponent,
+    FootHeaderComponent,
 
   ],
   imports: [

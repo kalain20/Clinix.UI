@@ -3,7 +3,7 @@
     </div>
 </nav>
 
-<div class="">
+<div class="w-auto">
     <main class="form-signin">
         <p class="login-message" *ngIf="!state">Form must not empty</p>
         <form [formGroup]="loginForm" (ngSubmit)="logInUser()">
@@ -31,10 +31,11 @@
                 <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <input [type]="type" formControlName="password" class="form-control format-text"
-                        id="floatingPassword" placeholder="Password" />
-                    <i (click)="hideShowPass()" class="fas {{eyeIcon}}" aria-hidden="true"></i>
-
+                        id="floatingPassword" placeholder="Password"  />
+                    
+                        <i (click)="hideShowPass()" class="fas {{eyeIcon}} space" aria-hidden="true"></i>
                 </div>
+                
                 <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
                     class="alert alert-danger text-center">
                     <div *ngIf="loginForm.controls['password'].errors.required && loginForm.controls['password'].dirty"

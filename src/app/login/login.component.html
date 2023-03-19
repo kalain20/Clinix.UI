@@ -1,0 +1,62 @@
+<nav id="sticktop">
+    <div class="container">
+    </div>
+</nav>
+
+<div class="">
+    <main class="form-signin">
+        <p class="login-message" *ngIf="!state">Form must not empty</p>
+        <form [formGroup]="loginForm" (ngSubmit)="logInUser()">
+
+            <div class="text-center">
+                <a href="" class="text-left logo"><img src="assets/demo-data/logo.png" alt=""></a>
+                <div class="p-3"></div>
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+            </div>
+            <div class="form-group">
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <input type="text" formControlName="username" class="form-control format-text" id="floatingInput"
+                        placeholder="username" />
+                </div>
+                <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+                    class="alert alert-danger text-center">
+                    <div *ngIf="loginForm.controls['username'].errors.required && loginForm.controls['username'].dirty"
+                        class="">
+                    </div>
+                    *Please enter username
+                </div>
+            </div>
+            <div class="form-group ">
+                <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <input [type]="type" formControlName="password" class="form-control format-text"
+                        id="floatingPassword" placeholder="Password" />
+                    <i (click)="hideShowPass()" class="fas {{eyeIcon}}" aria-hidden="true"></i>
+
+                </div>
+                <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+                    class="alert alert-danger text-center">
+                    <div *ngIf="loginForm.controls['password'].errors.required && loginForm.controls['password'].dirty"
+                        class="">
+                    </div>
+                    *Please enter password
+                </div>
+            </div>
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+                <span class="m-4"></span>
+                <label>
+                    <a class="account-link" routerLink="/register"> You haven't account</a>
+                </label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted text-center">&copy; enjoy your platform </p>
+        </form>
+
+    </main>
+</div>
+<app-footer></app-footer>

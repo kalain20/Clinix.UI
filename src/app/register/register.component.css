@@ -1,0 +1,19 @@
+.custom-select {
+    height: auto;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid #78BCEE;
+    margin-left: 70px;
+  }
+
+.format-aggrement{
+    color: #5d5d5d;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 12px;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+}
+.zone{
+  width: 350px;
+  margin-top: -50px;
+}

@@ -15,7 +15,7 @@
                                 <form class="mx-1 mx-md-4" [formGroup]="registrationForm">
                                     <div class="form-group">
                                         <div class="d-flex flex-row align-items-center mb-4">
-                                            <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                                            <i class="fas fa-user fa-lg me-3 fa-fw icon-color"></i>
                                             <input type="text" id="" formControlName="personName"
                                                 class="form-control format-text" placeholder="Your Name" />
                                         </div>
@@ -27,35 +27,68 @@
                                             *Please enter your name
                                         </div>
 
-
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-envelope fa-lg me-3 fa-fw icon-color"></i>
+                                            <input type="email" id="" formControlName="email"
+                                                class="form-control format-text" placeholder="Your Email" />
+                                        </div>
+                                        <div *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)"
+                                        class="alert alert-danger text-center">
+                                        <div *ngIf="registrationForm.controls['email'].errors.required && registrationForm.controls['email'].dirty"
+                                            class="">
+                                        </div>
+                                        *Please enter your email
                                     </div>
 
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                                        <input type="email" id="" formControlName="email"
-                                            class="form-control format-text" placeholder="Your Email" />
                                     </div>
+                                    <div class="form-group">
+                                        <div class="d-flex flex-row align-items-center mb-4">
+                                            <i class="fas fa-lock fa-lg me-3 fa-fw icon-color"></i>
+                                            <input type="password" id="" formControlName="password"
+                                                class="form-control format-text" placeholder="Password" />
+                                        </div>
 
-                                    <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                                        <input type="password" id="" formControlName="password"
-                                            class="form-control format-text" placeholder="Password" />
+                                        <div *ngIf="registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)"
+                                        class="alert alert-danger text-center">
+                                        <div *ngIf="registrationForm.controls['password'].errors.required && registrationForm.controls['password'].dirty"
+                                            class="">
+                                        </div>
+                                        *Please enter your password
                                     </div>
-
+                                    </div>
+                                    <div class="form-group">
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                        <i class="fas fa-key fa-lg me-3 fa-fw icon-color"></i>
                                         <input type="password" id="" class="form-control format-text"
                                             formControlName="repeatPassword" placeholder="Repeat your password" />
                                     </div>
-
+                                    <div *ngIf="registrationForm.controls['repeatPassword'].invalid && (registrationForm.controls['repeatPassword'].dirty || registrationForm.controls['repeatPassword'].touched)"
+                                        class="alert alert-danger text-center">
+                                        <div *ngIf="registrationForm.controls['repeatPassword'].errors.required && registrationForm.controls['repeatPassword'].dirty"
+                                            class="">
+                                        </div>
+                                        *Please repeat your password
+                                    </div>
+                                </div>
+                                  <div class="form-group">
                                     <div class="d-flex flex-row align-items-center mb-4">
-                                        <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
+                                        <i class="fas fa-phone fa-lg me-3 fa-fw icon-color"></i>
                                         <input type="tel" id="" class="form-control format-text"
                                             formControlName="phoneNumber" placeholder="Phone number" />
                                     </div>
-
-
-                                    <i class="fas fa-user-md"></i>
+                                    <div *ngIf="registrationForm.controls['phoneNumber'].invalid && (registrationForm.controls['phoneNumber'].dirty || registrationForm.controls['phoneNumber'].touched)"
+                                        class="alert alert-danger text-center">
+                                        <div *ngIf="registrationForm.controls['phoneNumber'].errors.required && registrationForm.controls['phoneNumber'].dirty"
+                                            class="">
+                                        </div>
+                                        *Please enter your phone number
+                                    </div>
+                                </div>
+                                    <div class="form-group">
+                                    <i class="fas fa-user-md icon-color"></i>
+                                    
                                     <select class="custom-select mb-3 format-text mt-4 w-75"
                                         (change)="changeStatement($event)" formControlName="statementName">
 
@@ -63,7 +96,14 @@
                                         <option *ngFor="let statement of statements" [ngValue]="statement">{{statement}}
                                         </option>
                                     </select>
-
+                                    <div *ngIf="registrationForm.controls['statementName'].invalid && (registrationForm.controls['statementName'].dirty || registrationForm.controls['statementName'].touched)"
+                                    class="alert alert-danger text-center">
+                                    <div *ngIf="registrationForm.controls['statementName'].errors.required && registrationForm.controls['statementName'].dirty"
+                                        class="">
+                                    </div>
+                                    *Please select your statement
+                                </div>
+                                </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
                                         <input class="form-check-input me-2" type="checkbox" value=""

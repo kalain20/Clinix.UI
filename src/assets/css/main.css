@@ -1890,3 +1890,7 @@ footer .rights:before {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
     border: solid 1px #78BCEE;
  }
+
+ .icon-color{
+    color: #78BCEE;
+  }

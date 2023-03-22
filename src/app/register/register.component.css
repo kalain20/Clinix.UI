@@ -14,3 +14,6 @@
     font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
 }
 
+.ng-invalid:not(form)  {
+  border: 2px solid red /* red */
+}

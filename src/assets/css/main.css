@@ -344,6 +344,7 @@ textarea {
     padding: 10px;
     text-transform: inherit;
     margin-bottom: 15px;
+    display: inline-block;
 }
 
 input[type="text"].tranparent,
@@ -1894,3 +1895,20 @@ footer .rights:before {
  .icon-color{
     color: #78BCEE;
   }
+
+.icon-element {
+    position: relative;
+}
+  
+.icon-element i{
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -10px;
+   
+}
+.icon-element span{
+    position: absolute;
+    margin-left: 265px;
+    margin-top: -10px ;
+}
+

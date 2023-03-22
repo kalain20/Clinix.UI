@@ -12,78 +12,104 @@
                             <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 ms-4">
                                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                                <form class="mx-1 mx-md-4" [formGroup]="registrationForm">
+                                <form class="mx-1 mx-md-4" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                                     <div class="form-group">
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class=" icon-element d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw icon-color"></i>
                                             <input type="text" id="" formControlName="personName"
-                                                class="form-control format-text" placeholder="Your Name" />
+                                                class="form-control format-text" placeholder="Your Name"
+                                                [ngClass]="{'is-invalid': submitted && f['personName'].errors}" />
                                         </div>
-                                        <div *ngIf="registrationForm.controls['personName'].invalid && (registrationForm.controls['personName'].dirty || registrationForm.controls['personName'].touched)"
-                                            class="alert alert-danger text-center">
-                                            <div *ngIf="registrationForm.controls['personName'].errors.required && registrationForm.controls['personName'].dirty"
+                                        <div *ngIf="submitted && f['personName'].errors"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f['personName'].errors"
                                                 class="">
+                                                *Please enter your name
                                             </div>
-                                            *Please enter your name
                                         </div>
 
                                     </div>
                                     <div class="form-group">
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class=" icon-element d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw icon-color"></i>
                                             <input type="email" id="" formControlName="email"
-                                                class="form-control format-text" placeholder="Your Email" />
+                                                class="form-control format-text" placeholder="Your Email"
+                                                [ngClass]="{'is-invalid': submitted && f['email'].errors}" />
                                         </div>
-                                        <div *ngIf="registrationForm.controls['email'].invalid && (registrationForm.controls['email'].dirty || registrationForm.controls['email'].touched)"
-                                        class="alert alert-danger text-center">
-                                        <div *ngIf="registrationForm.controls['email'].errors.required && registrationForm.controls['email'].dirty"
-                                            class="">
+                                        <div *ngIf="submitted && f['email'].errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="f['email'].errors['required']"
+                                            class="">*Please enter your email
                                         </div>
-                                        *Please enter your email
+                                        <div *ngIf="f['email'].errors['email']"
+                                        class="">*Email is invalid
+                                    </div>
                                     </div>
 
                                     </div>
                                     <div class="form-group">
-                                        <div class="d-flex flex-row align-items-center mb-4">
+                                        <div class=" icon-element d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw icon-color"></i>
                                             <input type="password" id="" formControlName="password"
-                                                class="form-control format-text" placeholder="Password" />
+                                                class="form-control format-text" placeholder="Password"
+                                                [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                                                />
                                         </div>
 
-                                        <div *ngIf="registrationForm.controls['password'].invalid && (registrationForm.controls['password'].dirty || registrationForm.controls['password'].touched)"
-                                        class="alert alert-danger text-center">
-                                        <div *ngIf="registrationForm.controls['password'].errors.required && registrationForm.controls['password'].dirty"
+                                        <div *ngIf="submitted && f['password'].errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="f['password'].errors['required']"
                                             class="">
+                                            *Please enter your password
                                         </div>
-                                        *Please enter your password
+                                        <div *ngIf="f['password'].errors['minlength']">
+                                            Password must be at least 6 characters
+                                        </div>
+                                        <div *ngIf="f['password'].errors['maxlength']">
+                                            Username must not exceed 20 characters
+                                        </div>
+                                       
                                     </div>
                                     </div>
                                     <div class="form-group">
-                                    <div class="d-flex flex-row align-items-center mb-4">
+                                    <div class=" icon-element d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-key fa-lg me-3 fa-fw icon-color"></i>
                                         <input type="password" id="" class="form-control format-text"
-                                            formControlName="repeatPassword" placeholder="Repeat your password" />
+                                            formControlName="repeatPassword" placeholder="Repeat your password" 
+                                            [ngClass]="{ 'is-invalid': submitted && f['repeatPassword'].errors }"/>
                                     </div>
-                                    <div *ngIf="registrationForm.controls['repeatPassword'].invalid && (registrationForm.controls['repeatPassword'].dirty || registrationForm.controls['repeatPassword'].touched)"
-                                        class="alert alert-danger text-center">
-                                        <div *ngIf="registrationForm.controls['repeatPassword'].errors.required && registrationForm.controls['repeatPassword'].dirty"
-                                            class="">
+                                    <div *ngIf="submitted && f['repeatPassword'].errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="f['repeatPassword'].errors['required']"
+                                            class="">  *Please confirm your password
                                         </div>
-                                        *Please repeat your password
+                                        <div *ngIf="f['repeatPassword'].errors['matching']">
+                                            Confirm Password does not match
+                                        </div>
+                                      
                                     </div>
                                 </div>
                                   <div class="form-group">
-                                    <div class="d-flex flex-row align-items-center mb-4">
+                                    <div class="icon-element d-flex flex-row align-items-center mb-4">
                                         <i class="fas fa-phone fa-lg me-3 fa-fw icon-color"></i>
                                         <input type="tel" id="" class="form-control format-text"
-                                            formControlName="phoneNumber" placeholder="Phone number" />
+                                            formControlName="phoneNumber" placeholder="Phone number" 
+                                            [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }"/>
                                     </div>
-                                    <div *ngIf="registrationForm.controls['phoneNumber'].invalid && (registrationForm.controls['phoneNumber'].dirty || registrationForm.controls['phoneNumber'].touched)"
-                                        class="alert alert-danger text-center">
-                                        <div *ngIf="registrationForm.controls['phoneNumber'].errors.required && registrationForm.controls['phoneNumber'].dirty"
+                                    <div *ngIf="submitted && f['phoneNumber'].errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="f['phoneNumber'].errors['required']"
                                             class="">
+                                            *Please enter your phone number
                                         </div>
-                                        *Please enter your phone number
+                                        <div *ngIf="f['phoneNumber'].errors['minlength']">
+                                            Phone Number must be at least 10 characters
+                                        </div>
+
+                                        <div *ngIf="f['phoneNumber'].errors['maxlength']">
+                                            Username must not exceed 15 characters
+                                        </div>
+                                       
                                     </div>
                                 </div>
                                     <div class="form-group">
@@ -96,9 +122,9 @@
                                         <option *ngFor="let statement of statements" [ngValue]="statement">{{statement}}
                                         </option>
                                     </select>
-                                    <div *ngIf="registrationForm.controls['statementName'].invalid && (registrationForm.controls['statementName'].dirty || registrationForm.controls['statementName'].touched)"
-                                    class="alert alert-danger text-center">
-                                    <div *ngIf="registrationForm.controls['statementName'].errors.required && registrationForm.controls['statementName'].dirty"
+                                    <div *ngIf="submitted && f['statementName'].errors"
+                                    class="invalid-feedback">
+                                    <div *ngIf=""
                                         class="">
                                     </div>
                                     *Please select your statement
@@ -120,7 +146,7 @@
                                         </label>
                                     </div>
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="button" (click)="registerUser()"
+                                        <button type="submit" (click)="registerUser()"
                                             class="btn btn-primary btn-lg">Register</button>
                                     </div>
 

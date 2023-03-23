@@ -1912,3 +1912,7 @@ footer .rights:before {
     margin-top: -10px ;
 }
 
+.alert-message{
+    color : red;
+    margin-top: -15px;
+}

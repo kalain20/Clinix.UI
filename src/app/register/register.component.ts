@@ -71,7 +71,6 @@ onSubmit(): void{
   if(this.registrationForm.invalid){
     return;
   }
-
   console.log(JSON.stringify(this.registrationForm.value, null, 2));
 }
 

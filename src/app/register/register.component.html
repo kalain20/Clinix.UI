@@ -21,9 +21,9 @@
                                                 [ngClass]="{'is-invalid': submitted && f['personName'].errors}" />
                                         </div>
                                         <div *ngIf="submitted && f['personName'].errors"
-                                            class="invalid-feedback">
-                                            <div *ngIf="f['personName'].errors"
-                                                class="">
+                                            class="alert-message">
+                                            
+                                            <div *ngIf="f['personName'].errors['required']">
                                                 *Please enter your name
                                             </div>
                                         </div>
@@ -37,12 +37,12 @@
                                                 [ngClass]="{'is-invalid': submitted && f['email'].errors}" />
                                         </div>
                                         <div *ngIf="submitted && f['email'].errors"
-                                        class="invalid-feedback">
-                                        <div *ngIf="f['email'].errors['required']"
-                                            class="">*Please enter your email
+                                        class="alert-message">
+                                        <div *ngIf="f['email'].errors['required']">
+                                            *Please enter your email
                                         </div>
-                                        <div *ngIf="f['email'].errors['email']"
-                                        class="">*Email is invalid
+                                        <div *ngIf="f['email'].errors['email']">
+                                            *Email is invalid
                                     </div>
                                     </div>
 
@@ -57,16 +57,15 @@
                                         </div>
 
                                         <div *ngIf="submitted && f['password'].errors"
-                                        class="invalid-feedback">
-                                        <div *ngIf="f['password'].errors['required']"
-                                            class="">
+                                        class="alert-message">
+                                        <div *ngIf="f['password'].errors['required']">
                                             *Please enter your password
                                         </div>
                                         <div *ngIf="f['password'].errors['minlength']">
-                                            Password must be at least 6 characters
+                                            Password must be at least 8 characters
                                         </div>
                                         <div *ngIf="f['password'].errors['maxlength']">
-                                            Username must not exceed 20 characters
+                                            Password must not exceed 20 characters
                                         </div>
                                        
                                     </div>
@@ -79,9 +78,9 @@
                                             [ngClass]="{ 'is-invalid': submitted && f['repeatPassword'].errors }"/>
                                     </div>
                                     <div *ngIf="submitted && f['repeatPassword'].errors"
-                                        class="invalid-feedback">
-                                        <div *ngIf="f['repeatPassword'].errors['required']"
-                                            class="">  *Please confirm your password
+                                        class="alert-message">
+                                        <div *ngIf="f['repeatPassword'].errors['required']">  
+                                            *Please confirm your password
                                         </div>
                                         <div *ngIf="f['repeatPassword'].errors['matching']">
                                             Confirm Password does not match
@@ -97,9 +96,8 @@
                                             [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }"/>
                                     </div>
                                     <div *ngIf="submitted && f['phoneNumber'].errors"
-                                        class="invalid-feedback">
-                                        <div *ngIf="f['phoneNumber'].errors['required']"
-                                            class="">
+                                        class="alert-message">
+                                        <div *ngIf="f['phoneNumber'].errors['required']">
                                             *Please enter your phone number
                                         </div>
                                         <div *ngIf="f['phoneNumber'].errors['minlength']">
@@ -123,9 +121,8 @@
                                         </option>
                                     </select>
                                     <div *ngIf="submitted && f['statementName'].errors"
-                                    class="invalid-feedback">
-                                    <div *ngIf=""
-                                        class="">
+                                    class="alert-message">
+                                    <div *ngIf="">
                                     </div>
                                     *Please select your statement
                                 </div>
@@ -144,12 +141,11 @@
                                             <a class="account-link btn btn-primary btn-lg" routerLink="/login"> Connect
                                                 your account</a>
                                         </label>
-                                    </div>
+                                    
                                     <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                        <button type="submit" (click)="registerUser()"
-                                            class="btn btn-primary btn-lg">Register</button>
+                                        <button type="submit"  class="btn btn-primary btn-lg">Register</button>
                                     </div>
-
+                                </div>
                                 </form>
 
                             </div>

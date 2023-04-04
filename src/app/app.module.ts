@@ -18,6 +18,7 @@ import { FootHeaderComponent } from './foot-header/foot-header.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

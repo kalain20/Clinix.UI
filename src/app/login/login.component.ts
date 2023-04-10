@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import validateForm from '../helpers/validateform';
+import { AuthentificationService } from '../services/authentification.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash"
-  constructor() {
+  constructor(private authentificationService : AuthentificationService ) {
   }
 
   ngOnInit(): void {
@@ -39,7 +40,23 @@ export class LoginComponent implements OnInit {
       console.warn(this.state);
     } else {
       this.state = true;
-
+     this.authentificationService.login(this.loginForm.value)
+     .subscribe({
+      next: (res) => {
+        if(res.Statement == "Doctor"){
+          console.log("Il s'agit d'un Medecin")
+        }
+        else if(res.Statement == "Nurse"){
+          console.log("Il s'agit d'un Infirmier")
+        }
+        else{
+          console.log("Il s'agit d'un Aide-soignant")
+        }
+      }, 
+       error: (err) => {
+        alert(err.error.message)
+       }
+     })
       console.log(this.loginForm.value);
 
 

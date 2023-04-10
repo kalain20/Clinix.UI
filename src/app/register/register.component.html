@@ -14,16 +14,23 @@
 
                                 <form class="mx-1 mx-md-4" [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                                     <div class="form-group">
+                                        <input type = "text" formControlName ="id" hidden/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type = "text" formControlName ="address" />
+                                    </div>
+                                    <div class="form-group">
                                         <div class=" icon-element d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw icon-color"></i>
-                                            <input type="text" id="" formControlName="personName"
+                                            <input type="text" id="" formControlName="name"
                                                 class="form-control format-text" placeholder="Your Name"
-                                                [ngClass]="{'is-invalid': submitted && f['personName'].errors}" />
+                                                [ngClass]="{'is-invalid': submitted && f['name'].errors}" />
                                         </div>
-                                        <div *ngIf="submitted && f['personName'].errors"
+                                        <div *ngIf="submitted && f['name'].errors"
                                             class="alert-message">
                                             
-                                            <div *ngIf="f['personName'].errors['required']">
+                                            <div *ngIf="f['name'].errors['required']">
                                                 *Please enter your name
                                             </div>
                                         </div>
@@ -114,13 +121,12 @@
                                     <i class="fas fa-user-md icon-color"></i>
                                     
                                     <select class="custom-select mb-4 format-text mt-4 w-75"
-                                        (change)="changeStatement($event)" formControlName="statementName">
-
+                                        (change)="changeStatement($event)" formControlName="statement">
                                         <option value="">Choose your statement</option>
                                         <option *ngFor="let statement of statements" [ngValue]="statement">{{statement}}
                                         </option>
                                     </select>
-                                    <div *ngIf="submitted && f['statementName'].errors"
+                                    <div *ngIf="submitted && f['statement'].errors"
                                     class="alert-message">
                                     <div *ngIf="">
                                     </div>
@@ -129,8 +135,8 @@
                                 </div>
 
                                     <div class="form-check d-flex justify-content-center mb-5">
-                                        <input class="form-check-input me-2" type="checkbox" value=""
-                                            id="form2Example3c" />
+                                        <input class="form-check-input me-2" type="checkbox"
+                                            id="form2Example3c" (change)="onCheckboxChange($event)" formControlName="acceptTerm" />
                                         <label class="account-link format-aggrement" for="form2Example3">
                                             I agree all statements in <a routerLink="/home">Terms of service</a>
                                         </label>

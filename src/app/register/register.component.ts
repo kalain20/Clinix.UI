@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import validateForm from '../helpers/validateform';
 import Validation from '../utils/validation';
+import { AuthentificationService } from '../services/authentification.service';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
     email: new FormControl(""),
     password: new FormControl(""),
     repeatPassword: new FormControl(""),
-    statementName: new FormControl(""),
+    statement: new FormControl(""),
     acceptTerms: new FormControl(false)
   });
   submitted = false;
@@ -23,12 +24,15 @@ export class RegisterComponent implements OnInit {
   /**
    *
    */
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private registrationService : AuthentificationService ) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
-      personName: ['', Validators.required],
+      id: [''],
+      userName: [],
+      name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      address : ['', ],
       password: ['',
         [
           Validators.required,
@@ -42,8 +46,8 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(15)
       ]],
       repeatPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue],
-      statementName: ['', Validators.required]
+      acceptTerm: [false, Validators.requiredTrue],
+      statement: ['', Validators.required]
     },
       {
         validators: [Validation.match('password', 'repeatPassword')]
@@ -57,16 +61,41 @@ export class RegisterComponent implements OnInit {
     //console.log(this.registrationForm.get("statementName").value);
 
   }
-  onSubmit(): void {
-    let userState = this.registrationForm.get("statementName")?.value;
-    let name = this.registrationForm.get("personName")?.value;
+  onSubmit() {
+    let userState = this.registrationForm.get("statement")?.value;
+    let name = this.registrationForm.get("name")?.value;
     let phone = this.registrationForm.get("phoneNumber")?.value;
     this.createUserName(userState, name, phone);
-    console.log(this.createUserName(userState, name, phone));
+    // console.log(this.createUserName(userState, name, phone));
+   
+    console.log(this.registrationForm)
     this.submitted = true;
     if (this.registrationForm.invalid) {
       return;
+    }else{
+        alert("asasasaa")
+         this.registrationForm.controls["userName"].setValue(this.createUserName(userState, name, phone));
+         this.registrationForm.controls["id"].setValue(this.createUserName(userState, name, phone));
+         this.registrationForm.controls["acceptTerm"].setValue(true);
+      this.registrationService.signUp(this.registrationForm.value)
+      .subscribe({
+         next:(res =>{
+          alert(res.message)
+         })
+      })    
     }
+  }
+
+  onCheckboxChange(e: any): boolean {
+     if(e.target.checked){
+      alert("asasassa")
+      return true;
+     }else{
+      return false;
+     }
+    
+      
+      
   }
 
   get f(): { [key: string]: AbstractControl } {

@@ -12,7 +12,7 @@ import { AuthentificationService } from '../services/authentification.service';
 export class RegisterComponent implements OnInit {
   statements: any = ['Doctor', 'Nurse', 'Beneficiary attendant'];
   registrationForm: FormGroup = new FormGroup({
-    personName: new FormControl(""),
+    name: new FormControl(""),
     email: new FormControl(""),
     password: new FormControl(""),
     repeatPassword: new FormControl(""),
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
       id: [''],
+      token:[''],
       userName: [],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -73,10 +74,10 @@ export class RegisterComponent implements OnInit {
     if (this.registrationForm.invalid) {
       return;
     }else{
-        alert("asasasaa")
          this.registrationForm.controls["userName"].setValue(this.createUserName(userState, name, phone));
          this.registrationForm.controls["id"].setValue(this.createUserName(userState, name, phone));
          this.registrationForm.controls["acceptTerm"].setValue(true);
+         this.registrationForm.controls["token"].setValue("");
       this.registrationService.signUp(this.registrationForm.value)
       .subscribe({
          next:(res =>{

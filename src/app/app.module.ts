@@ -16,6 +16,9 @@ import { RegisterComponent } from './register/register.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FootHeaderComponent } from './foot-header/foot-header.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MedecinComponent } from './medecin/medecin.component';
+import { InfirmierComponent } from './infirmier/infirmier.component';
+import { SoignantComponent } from './soignant/soignant.component';
 
 
 
@@ -34,6 +37,9 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     RegisterComponent,
     FootHeaderComponent,
+    MedecinComponent,
+    InfirmierComponent,
+    SoignantComponent,
 
   ],
   imports: [

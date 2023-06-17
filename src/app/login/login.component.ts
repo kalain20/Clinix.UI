@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import validateForm from '../helpers/validateform';
 import { AuthentificationService } from '../services/authentification.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
   type: string = "password";
   isText: boolean = false;
   eyeIcon: string = "fa-eye-slash"
-  constructor(private authentificationService : AuthentificationService ) {
+  constructor(private authentificationService : AuthentificationService, private router : Router ) {
   }
 
   ngOnInit(): void {
@@ -44,13 +45,16 @@ export class LoginComponent implements OnInit {
      .subscribe({
       next: (res) => {
         if(res.Statement == "Doctor"){
-          console.log("Il s'agit d'un Medecin")
+          this.loginForm.reset();
+          this.router.navigate(['/medecin']);
         }
         else if(res.Statement == "Nurse"){
-          console.log("Il s'agit d'un Infirmier")
+          this.loginForm.reset();
+          this.router.navigate(['/infirmier']);
         }
         else{
-          console.log("Il s'agit d'un Aide-soignant")
+          this.loginForm.reset();
+          this.router.navigate(['/soignant']);
         }
       }, 
        error: (err) => {
@@ -58,8 +62,6 @@ export class LoginComponent implements OnInit {
        }
      })
       console.log(this.loginForm.value);
-
-
     }
   }
  

@@ -11,12 +11,14 @@ import { AuthentificationService } from '../services/authentification.service';
 })
 export class RegisterComponent implements OnInit {
   statements: any = ['Doctor', 'Nurse', 'Beneficiary attendant'];
+  addresses: any = ['Abobo', 'Adjame', 'Cocody', 'Koumassi', 'Port-Bouet', 'Treichville', 'Marcory', 'Yopougon', 'Plateau'];
   registrationForm: FormGroup = new FormGroup({
     name: new FormControl(""),
     email: new FormControl(""),
     password: new FormControl(""),
     repeatPassword: new FormControl(""),
     statement: new FormControl(""),
+    address: new FormControl(""),
     acceptTerms: new FormControl(false)
   });
   submitted = false;
@@ -24,16 +26,15 @@ export class RegisterComponent implements OnInit {
   /**
    *
    */
-  constructor(private formBuilder: FormBuilder, private registrationService : AuthentificationService ) { }
+  constructor(private formBuilder: FormBuilder, private registrationService: AuthentificationService) { }
 
   ngOnInit(): void {
     this.registrationForm = this.formBuilder.group({
       id: [''],
-      token:[''],
+      token: [''],
       userName: [],
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      address : ['', ],
       password: ['',
         [
           Validators.required,
@@ -48,6 +49,7 @@ export class RegisterComponent implements OnInit {
       ]],
       repeatPassword: ['', Validators.required],
       acceptTerm: [false, Validators.requiredTrue],
+      address: ['', Validators.required],
       statement: ['', Validators.required]
     },
       {
@@ -68,35 +70,35 @@ export class RegisterComponent implements OnInit {
     let phone = this.registrationForm.get("phoneNumber")?.value;
     this.createUserName(userState, name, phone);
     // console.log(this.createUserName(userState, name, phone));
-   
+
     console.log(this.registrationForm)
     this.submitted = true;
     if (this.registrationForm.invalid) {
       return;
-    }else{
-         this.registrationForm.controls["userName"].setValue(this.createUserName(userState, name, phone));
-         this.registrationForm.controls["id"].setValue(this.createUserName(userState, name, phone));
-         this.registrationForm.controls["acceptTerm"].setValue(true);
-         this.registrationForm.controls["token"].setValue("");
+    } else {
+      this.registrationForm.controls["userName"].setValue(this.createUserName(userState, name, phone));
+      this.registrationForm.controls["id"].setValue(this.createUserName(userState, name, phone));
+      this.registrationForm.controls["acceptTerm"].setValue(true);
+      this.registrationForm.controls["token"].setValue("");
       this.registrationService.signUp(this.registrationForm.value)
-      .subscribe({
-         next:(res =>{
-          alert(res.message)
-         })
-      })    
+        .subscribe({
+          next: (res => {
+            alert(res.message)
+          })
+        })
     }
   }
 
   onCheckboxChange(e: any): boolean {
-     if(e.target.checked){
+    if (e.target.checked) {
       alert("asasassa")
       return true;
-     }else{
+    } else {
       return false;
-     }
-    
-      
-      
+    }
+
+
+
   }
 
   get f(): { [key: string]: AbstractControl } {

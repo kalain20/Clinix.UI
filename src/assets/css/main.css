@@ -1916,3 +1916,43 @@ footer .rights:before {
     color : red;
     margin-top: -15px;
 }
+
+.space{
+  background-color: #C6E4EE;
+  height: 950px;
+  border:solid 1px #000;
+}
+
+.profil-container{
+    border: solid 1px red;
+    width: 40%;
+    height: 70%;
+    margin-top: 8%;
+    margin-left:30%;
+    background-color: #ffffff;
+}
+
+.profil{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 4em;
+    text-align: center;
+    margin-top: 30%;
+}
+
+.btn{
+    background-color: #7AB3E8;
+}
+.patient-infos{
+    color:#7AB3E8;
+    font-weight: bold;
+}
+.profil-title{
+    margin-left: 33%;
+    margin-top: 3%;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 2em;
+    position: absolute;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

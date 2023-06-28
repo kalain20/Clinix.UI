@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MedecinComponent } from './medecin/medecin.component';
 import { InfirmierComponent } from './infirmier/infirmier.component';
 import { SoignantComponent } from './soignant/soignant.component';
+import { ProfilComponent } from './profil/profil.component';
 
 
 
@@ -40,6 +41,7 @@ import { SoignantComponent } from './soignant/soignant.component';
     MedecinComponent,
     InfirmierComponent,
     SoignantComponent,
+    ProfilComponent,
 
   ],
   imports: [

@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./medecin.component.css']
 })
 export class MedecinComponent {
+ displayModal = false
 
+  public displayDetail(){
+      this.displayModal = true
+      console.log(this.displayModal)
+  }
 }

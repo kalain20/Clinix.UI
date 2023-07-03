@@ -20,6 +20,7 @@ import { MedecinComponent } from './medecin/medecin.component';
 import { InfirmierComponent } from './infirmier/infirmier.component';
 import { SoignantComponent } from './soignant/soignant.component';
 import { ProfilComponent } from './profil/profil.component';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -42,6 +43,7 @@ import { ProfilComponent } from './profil/profil.component';
     InfirmierComponent,
     SoignantComponent,
     ProfilComponent,
+    DetailsComponent,
 
   ],
   imports: [

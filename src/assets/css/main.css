@@ -188,9 +188,10 @@ h6 {
     font-weight: 400;
     text-transform: inherit;
     font-size: 14px;
-    background-color: #375EBC;
+    /* background-color: #375EBC; */
     color: #fff;
     padding: 8px 18px;
+    margin-right: 10px;
 }
 
 .btn:hover {
@@ -1075,7 +1076,7 @@ Inner Pages
     -o-transition:All 0.3s ease;
 }
 .promo a.btn:hover,footer .tags a:hover, .sidebar .tags a:hover{
-    background: #4ca5e8;
+   background: #4ca5e8;
 }
 
 
@@ -1916,7 +1917,7 @@ footer .rights:before {
 }
 
 .btn{
-    background-color: #7AB3E8;
+    /*background-color: #7AB3E8;*/
 }
 
 .space{

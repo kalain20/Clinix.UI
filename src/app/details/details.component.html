@@ -1,19 +1,49 @@
-<div class="modal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Save changes</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<!-- The Modal -->
+<div class="modal" tabindex="-1" role="dialog" aria-hidden="true" id="myModal">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Modal Heading</h4>
+        <button type="button" (click)="closeModal()" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="modal-row">
+          <div class="acte-medical">
+            <textarea></textarea>
+            <div class='modal-btn-zone'>
+              <button type="button" class="btn btn-primary">Ajouter</button>
+              <button type="button" class="btn btn-danger">Supprimer</button>
+            </div>
+          </div>
+          <div class="acte-medical">
+            <textarea></textarea>
+            <div class='modal-btn-zone'>
+            <button type="button" class="btn btn-primary">Ajouter</button>
+            <button type="button" class="btn btn-danger">Supprimer</button>
+          </div>
+          </div>
+          <div class="acte-medical">
+            <textarea></textarea>
+            <div class='modal-btn-zone'>
+            <button type="button" class="btn btn-primary">Ajouter</button>
+            <button type="button" class="btn btn-danger">Supprimer</button>
+          </div>
+          </div>
         </div>
       </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer footer-zone">
+        <div class=>
+          <button type="button" (click)="closeModal()" class="btn btn-danger" data-bs-dismiss="modal"
+            id="btn-quitter">Quitter</button>
+        </div>
+      </div>
+
     </div>
   </div>
+</div>

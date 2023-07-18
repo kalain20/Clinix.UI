@@ -6,10 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./medecin.component.css']
 })
 export class MedecinComponent {
- displayModal = false
+ 
 
-  public displayDetail(){
-      this.displayModal = true
-      console.log(this.displayModal)
+ 
+
+  closeModal(){
+    const modalDiv = document.getElementById('myModal')
+  if (modalDiv != null) {
+    modalDiv.style.display ="none";
+  }
+     
   }
 }

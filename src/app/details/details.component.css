@@ -1,0 +1,27 @@
+.modal-row{
+    display: flex;
+    align-items: wrap;
+    justify-content: space-between;
+   
+}
+
+.acte-medical{
+    height: 200px;
+    width: 30%;
+}
+.acte-medical textarea{
+    background-color: #D9D9D9;
+}
+
+.footer-zone{
+    margin-top: 10%;
+    width: 450px;
+}
+.modal-btn-zone{
+    margin-left: 7%;
+}
+@media screen and (max-width: 600px) {
+    .footer-zone {
+     width: 260px;
+    }
+  }

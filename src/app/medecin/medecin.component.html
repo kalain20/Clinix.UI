@@ -8,9 +8,7 @@
                     <section class="space">
                         <span class="profil-title">Bienvenue dans votre espace de medecin</span>
                         <div class="profil-container">
-                            <div class="" *ngIf="displayModal">
-                                <app-details></app-details>
-                        </div>
+                            
                             <div>
 
                                 <table class="table ">
@@ -30,7 +28,7 @@
                                             <td class="text-center patient-infos">M</td>
                                             <td class="text-center patient-infos">Cocody</td>
                                             <td class="text-center"><button type="button"
-                                                    class="btn btn-primary"  (click) = "displayDetail()" >Detail</button></td>
+                                                    class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#myModal" >Detail</button></td>
                                         </tr>
                                         <tr>
                                             <td class="text-center patient-infos">Tremblay Pascal</td>
@@ -117,3 +115,4 @@
         
     </section>
 </div>
+<app-details></app-details>

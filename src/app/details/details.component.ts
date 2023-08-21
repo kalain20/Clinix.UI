@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MedecinComponent } from '../medecin/medecin.component';
 
 @Component({
   selector: 'app-details',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class DetailsComponent {
 
+    closeModal(){
+      const modalDiv = document.getElementById('myModal')
+    if (modalDiv != null) {
+      modalDiv.style.display ="none";
+    }
+       
+    }
 }

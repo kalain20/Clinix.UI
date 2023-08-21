@@ -18,7 +18,18 @@
     width: 450px;
 }
 .modal-btn-zone{
-    margin-left: 7%;
+    margin-left: 9%;
+}
+h4{
+    text-align: center;
+    margin-left: 15%;
+    color: #5ea9dd;
+    font-weight: bold;
+    font-size:3em;
+    text-transform: uppercase;
+    width: 70%;
+    background-color: #d9d9d9;
+
 }
 @media screen and (max-width: 600px) {
     .footer-zone {
